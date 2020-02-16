@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Diary
 {
-    public partial class Form1 : Form
+    public partial class Diary : Form
     {
-        public Form1()
+        public Diary()
         {
             InitializeComponent();
+        }
+
+        private void 閉じるToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
