@@ -183,6 +183,7 @@
             this.saveButton.TabIndex = 0;
             this.saveButton.Text = "保存";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // shutdownButton
             // 

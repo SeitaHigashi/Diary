@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Diary
 {
     public partial class Diary : Form
     {
+        private string destination = ConfigurationManager.AppSettings["destination"];
+
         public Diary()
         {
             InitializeComponent();
@@ -42,8 +45,17 @@ namespace Diary
             saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files(*.*)|*.*";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Excel.New(saveFileDialog.FileName);
+                destination = saveFileDialog.FileName;
+                Excel.New(destination);
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["destination"].Value = destination;
+                config.Save();
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Excel.Save(destination, null);
         }
     }
 }

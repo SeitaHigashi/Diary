@@ -24,12 +24,13 @@ namespace Diary
             }
         }
 
-        public static void Load(string docName)
+        public static void Save(string docName, Log log)
         {
-        }
-
-        public static void Save(string docName)
-        {
+            using (XLWorkbook workbook = XLWorkbook.OpenFromTemplate(docName))
+            {
+                var worksheet = workbook.Worksheet("Diary");
+                Console.WriteLine(worksheet.Cell("A1").Value);
+            }
         }
     }
 }
