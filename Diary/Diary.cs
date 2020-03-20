@@ -21,5 +21,18 @@ namespace Diary
         {
             Application.Exit();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (classTime.Text)
+            {
+                case "その他":
+                    customTime.Enabled = true;
+                    break;
+                default:
+                    customTime.Enabled = false;
+                    break;
+            }
+        }
     }
 }
