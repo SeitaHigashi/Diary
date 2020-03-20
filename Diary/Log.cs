@@ -8,5 +8,11 @@ namespace Diary
 {
     class Log
     {
+
+        public Log()
+        {
+
+        }
+
     }
 }

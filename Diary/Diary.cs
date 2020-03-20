@@ -34,5 +34,16 @@ namespace Diary
                     break;
             }
         }
+
+        private void newDiaryMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = "Diary.xlsx";
+            saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files(*.*)|*.*";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Excel.New(saveFileDialog.FileName);
+            }
+        }
     }
 }

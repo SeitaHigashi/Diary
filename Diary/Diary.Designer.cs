@@ -37,10 +37,11 @@
             this.tomorrowsPlansLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openExcelFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openDiaryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newDiaryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.shutdownButton = new System.Windows.Forms.Button();
             this.performanceLabel = new System.Windows.Forms.Label();
             this.performance = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -143,47 +144,55 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // ファイルToolStripMenuItem
+            // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openExcelFileMenuItem,
+            this.openDiaryMenuItem,
+            this.newDiaryMenuItem,
             this.exitToolStripMenuItem});
-            this.FileToolStripMenuItem.Name = "ファイルToolStripMenuItem";
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.FileToolStripMenuItem.Text = "ファイル";
             // 
-            // excelファイルを開くToolStripMenuItem
+            // openDiaryMenuItem
             // 
-            this.openExcelFileMenuItem.Name = "excelファイルを開くToolStripMenuItem";
-            this.openExcelFileMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.openExcelFileMenuItem.Text = "Excelファイルを開く";
+            this.openDiaryMenuItem.Name = "openDiaryMenuItem";
+            this.openDiaryMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.openDiaryMenuItem.Text = "日誌を開く";
             // 
-            // 閉じるToolStripMenuItem
+            // newDiaryMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "閉じるToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.newDiaryMenuItem.Name = "newDiaryMenuItem";
+            this.newDiaryMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.newDiaryMenuItem.Text = "日誌を新規に作成する";
+            this.newDiaryMenuItem.Click += new System.EventHandler(this.newDiaryMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.exitToolStripMenuItem.Text = "閉じる";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.閉じるToolStripMenuItem_Click);
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 24);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "保存";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveButton.Location = new System.Drawing.Point(3, 3);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(107, 24);
+            this.saveButton.TabIndex = 0;
+            this.saveButton.Text = "保存";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // shutdownButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(116, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 24);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "保存&&シャットダウン";
-            this.button2.UseVisualStyleBackColor = true;
+            this.shutdownButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shutdownButton.Location = new System.Drawing.Point(116, 3);
+            this.shutdownButton.Name = "shutdownButton";
+            this.shutdownButton.Size = new System.Drawing.Size(107, 24);
+            this.shutdownButton.TabIndex = 1;
+            this.shutdownButton.Text = "保存&&シャットダウン";
+            this.shutdownButton.UseVisualStyleBackColor = true;
             // 
             // performanceLabel
             // 
@@ -295,8 +304,8 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.saveButton, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.shutdownButton, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 488);
             this.tableLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 30);
@@ -340,10 +349,10 @@
         private System.Windows.Forms.Label tomorrowsPlansLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openExcelFileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openDiaryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button shutdownButton;
         private System.Windows.Forms.Label performanceLabel;
         private System.Windows.Forms.TextBox performance;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -352,6 +361,7 @@
         private System.Windows.Forms.Label customTimeLabel;
         private System.Windows.Forms.TextBox Task;
         private System.Windows.Forms.NumericUpDown customTime;
+        private System.Windows.Forms.ToolStripMenuItem newDiaryMenuItem;
     }
 }
 
