@@ -24,6 +24,15 @@ namespace Diary
             }
         }
 
+        public static string LoadPlans(string docName)
+        {
+            using(XLWorkbook workbook = XLWorkbook.OpenFromTemplate(docName))
+            {
+                var worksheet = workbook.Worksheet("Diary");
+                return worksheet.Column("E").LastCellUsed().Value.ToString();
+            }
+        }
+
         public static void Save(string docName, Log log)
         {
             using (XLWorkbook workbook = XLWorkbook.OpenFromTemplate(docName))

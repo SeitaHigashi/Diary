@@ -84,7 +84,7 @@
             this.classTime.Name = "classTime";
             this.classTime.Size = new System.Drawing.Size(220, 20);
             this.classTime.TabIndex = 2;
-            this.classTime.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.classTime.SelectedIndexChanged += new System.EventHandler(this.classTime_SelectedIndexChanged);
             // 
             // todaysPlansLabel
             // 
@@ -172,7 +172,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.exitToolStripMenuItem.Text = "閉じる";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.閉じるToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // saveButton
             // 

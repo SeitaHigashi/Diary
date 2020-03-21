@@ -18,14 +18,20 @@ namespace Diary
         public Diary()
         {
             InitializeComponent();
+            Initialize();
         }
 
-        private void 閉じるToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Initialize()
+        {
+            todaysPlans.Text = Excel.LoadPlans(destination);
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void classTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (classTime.Text)
             {
@@ -55,7 +61,13 @@ namespace Diary
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Excel.Save(destination, null);
+            var log = new Log();
+            log.date = date.Value;
+            log.classTime = 0;
+            log.performance = performanceLabel.Text;
+            log.task = taskLabel.Text;
+            log.plan = tomorrowsPlan.Text;
+            Excel.Save(destination, log);
         }
     }
 }
