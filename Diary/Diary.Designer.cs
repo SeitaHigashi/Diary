@@ -47,7 +47,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.date = new System.Windows.Forms.DateTimePicker();
             this.customTimeLabel = new System.Windows.Forms.Label();
-            this.Task = new System.Windows.Forms.TextBox();
+            this.task = new System.Windows.Forms.TextBox();
             this.customTime = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
@@ -122,7 +122,7 @@
             this.tomorrowsPlan.Location = new System.Drawing.Point(3, 280);
             this.tomorrowsPlan.Name = "tomorrowsPlan";
             this.tomorrowsPlan.Size = new System.Drawing.Size(220, 19);
-            this.tomorrowsPlan.TabIndex = 4;
+            this.tomorrowsPlan.TabIndex = 6;
             // 
             // tomorrowsPlansLabel
             // 
@@ -159,6 +159,7 @@
             this.openDiaryMenuItem.Name = "openDiaryMenuItem";
             this.openDiaryMenuItem.Size = new System.Drawing.Size(183, 22);
             this.openDiaryMenuItem.Text = "日誌を開く";
+            this.openDiaryMenuItem.Click += new System.EventHandler(this.openDiaryMenuItem_Click);
             // 
             // newDiaryMenuItem
             // 
@@ -211,7 +212,7 @@
             this.performance.Location = new System.Drawing.Point(3, 206);
             this.performance.Name = "performance";
             this.performance.Size = new System.Drawing.Size(220, 19);
-            this.performance.TabIndex = 3;
+            this.performance.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -227,7 +228,7 @@
             this.tableLayoutPanel1.Controls.Add(this.performanceLabel, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.performance, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.taskLabel, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.Task, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.task, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.tomorrowsPlansLabel, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.customTime, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -268,13 +269,13 @@
             this.customTimeLabel.TabIndex = 13;
             this.customTimeLabel.Text = "カスタム時間 (分)";
             // 
-            // Task
+            // task
             // 
-            this.Task.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Task.Location = new System.Drawing.Point(3, 243);
-            this.Task.Name = "Task";
-            this.Task.Size = new System.Drawing.Size(220, 19);
-            this.Task.TabIndex = 5;
+            this.task.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.task.Location = new System.Drawing.Point(3, 243);
+            this.task.Name = "task";
+            this.task.Size = new System.Drawing.Size(220, 19);
+            this.task.TabIndex = 5;
             // 
             // customTime
             // 
@@ -293,7 +294,7 @@
             0});
             this.customTime.Name = "customTime";
             this.customTime.Size = new System.Drawing.Size(220, 19);
-            this.customTime.TabIndex = 14;
+            this.customTime.TabIndex = 3;
             this.customTime.Value = new decimal(new int[] {
             90,
             0,
@@ -328,7 +329,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(242, 39);
             this.Name = "Diary";
-            this.Text = "Diary";
+            this.Text = "4";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -360,7 +361,7 @@
         private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label customTimeLabel;
-        private System.Windows.Forms.TextBox Task;
+        private System.Windows.Forms.TextBox task;
         private System.Windows.Forms.NumericUpDown customTime;
         private System.Windows.Forms.ToolStripMenuItem newDiaryMenuItem;
     }

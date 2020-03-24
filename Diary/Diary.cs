@@ -18,11 +18,29 @@ namespace Diary
         public Diary()
         {
             InitializeComponent();
-            Initialize();
+            OpenDiary();
         }
 
         private void Initialize()
         {
+            todaysPlans.Text = "";
+            performance.Text = "";
+            task.Text = "";
+            tomorrowsPlan.Text = "";
+        }
+
+        private string SetDestination(string destination)
+        {
+            this.destination = destination;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["destination"].Value = destination;
+            config.Save();
+            return this.destination;
+        }
+
+        private void OpenDiary()
+        {
+            Initialize();
             todaysPlans.Text = Excel.LoadPlans(destination);
         }
 
@@ -52,10 +70,9 @@ namespace Diary
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 destination = saveFileDialog.FileName;
+                SetDestination(destination);
                 Excel.New(destination);
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.AppSettings.Settings["destination"].Value = destination;
-                config.Save();
+                OpenDiary();
             }
         }
 
@@ -64,10 +81,23 @@ namespace Diary
             var log = new Log();
             log.date = date.Value;
             log.classTime = 0;
-            log.performance = performanceLabel.Text;
-            log.task = taskLabel.Text;
+            log.performance = performance.Text;
+            log.task = task.Text;
             log.plan = tomorrowsPlan.Text;
             Excel.Save(destination, log);
+        }
+
+        private void openDiaryMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files(*.*)|*.*";
+                if(openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    SetDestination(openFileDialog.FileName);
+                    OpenDiary();
+                }
+            }
         }
     }
 }

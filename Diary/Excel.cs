@@ -26,19 +26,34 @@ namespace Diary
 
         public static string LoadPlans(string docName)
         {
-            using(XLWorkbook workbook = XLWorkbook.OpenFromTemplate(docName))
+            try
             {
-                var worksheet = workbook.Worksheet("Diary");
-                return worksheet.Column("E").LastCellUsed().Value.ToString();
+                using (XLWorkbook workbook = new XLWorkbook(docName))
+                {
+                    var worksheet = workbook.Worksheet("Diary");
+                    return worksheet.Column("E").LastCellUsed().Value.ToString();
+                }
             }
+            catch
+            {
+                return null;
+            };
+
         }
 
-        public static void Save(string docName, Log log)
+            public static void Save(string docName, Log log)
         {
-            using (XLWorkbook workbook = XLWorkbook.OpenFromTemplate(docName))
+            using (XLWorkbook workbook = new XLWorkbook(docName))
             {
                 var worksheet = workbook.Worksheet("Diary");
                 Console.WriteLine(worksheet.Cell("A1").Value);
+                var row = worksheet.Column("A").LastCellUsed().WorksheetRow().RowNumber() + 1;
+                worksheet.Cell("A" + row).Value = log.date;
+                worksheet.Cell("B" + row).Value = log.classTime;
+                worksheet.Cell("C" + row).Value = log.performance;
+                worksheet.Cell("D" + row).Value = log.task;
+                worksheet.Cell("E" + row).Value = log.plan;
+                workbook.Save();
             }
         }
     }
