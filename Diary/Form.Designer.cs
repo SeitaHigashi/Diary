@@ -1,6 +1,6 @@
 ﻿namespace Diary
 {
-    partial class Diary
+    partial class Form
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.timeTable = new System.Windows.Forms.CheckedListBox();
             this.classTime = new System.Windows.Forms.ComboBox();
             this.todaysPlansLabel = new System.Windows.Forms.Label();
             this.todaysPlans = new System.Windows.Forms.TextBox();
@@ -50,33 +49,19 @@
             this.task = new System.Windows.Forms.TextBox();
             this.customTime = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.timeTable1 = new Diary.TimeTable();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customTime)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // timeTable
-            // 
-            this.timeTable.CheckOnClick = true;
-            this.timeTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeTable.FormattingEnabled = true;
-            this.timeTable.Items.AddRange(new object[] {
-            "1限",
-            "2限",
-            "3限",
-            "4限"});
-            this.timeTable.Location = new System.Drawing.Point(3, 28);
-            this.timeTable.Name = "timeTable";
-            this.timeTable.Size = new System.Drawing.Size(220, 60);
-            this.timeTable.TabIndex = 1;
-            // 
             // classTime
             // 
             this.classTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.classTime.FormattingEnabled = true;
-            this.classTime.Location = new System.Drawing.Point(3, 94);
+            this.classTime.Location = new System.Drawing.Point(3, 122);
             this.classTime.Name = "classTime";
             this.classTime.Size = new System.Drawing.Size(220, 20);
             this.classTime.TabIndex = 2;
@@ -86,7 +71,7 @@
             // 
             this.todaysPlansLabel.AutoSize = true;
             this.todaysPlansLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.todaysPlansLabel.Location = new System.Drawing.Point(3, 154);
+            this.todaysPlansLabel.Location = new System.Drawing.Point(3, 182);
             this.todaysPlansLabel.Name = "todaysPlansLabel";
             this.todaysPlansLabel.Size = new System.Drawing.Size(220, 12);
             this.todaysPlansLabel.TabIndex = 9;
@@ -95,7 +80,7 @@
             // todaysPlans
             // 
             this.todaysPlans.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.todaysPlans.Location = new System.Drawing.Point(3, 169);
+            this.todaysPlans.Location = new System.Drawing.Point(3, 197);
             this.todaysPlans.Name = "todaysPlans";
             this.todaysPlans.ReadOnly = true;
             this.todaysPlans.Size = new System.Drawing.Size(220, 19);
@@ -106,7 +91,7 @@
             // 
             this.taskLabel.AutoSize = true;
             this.taskLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.taskLabel.Location = new System.Drawing.Point(3, 228);
+            this.taskLabel.Location = new System.Drawing.Point(3, 256);
             this.taskLabel.Name = "taskLabel";
             this.taskLabel.Size = new System.Drawing.Size(220, 12);
             this.taskLabel.TabIndex = 5;
@@ -115,7 +100,7 @@
             // tomorrowsPlan
             // 
             this.tomorrowsPlan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tomorrowsPlan.Location = new System.Drawing.Point(3, 280);
+            this.tomorrowsPlan.Location = new System.Drawing.Point(3, 308);
             this.tomorrowsPlan.Name = "tomorrowsPlan";
             this.tomorrowsPlan.Size = new System.Drawing.Size(220, 19);
             this.tomorrowsPlan.TabIndex = 6;
@@ -124,7 +109,7 @@
             // 
             this.tomorrowsPlansLabel.AutoSize = true;
             this.tomorrowsPlansLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tomorrowsPlansLabel.Location = new System.Drawing.Point(3, 265);
+            this.tomorrowsPlansLabel.Location = new System.Drawing.Point(3, 293);
             this.tomorrowsPlansLabel.Name = "tomorrowsPlansLabel";
             this.tomorrowsPlansLabel.Size = new System.Drawing.Size(220, 12);
             this.tomorrowsPlansLabel.TabIndex = 7;
@@ -191,12 +176,13 @@
             this.shutdownButton.TabIndex = 1;
             this.shutdownButton.Text = "保存&&シャットダウン";
             this.shutdownButton.UseVisualStyleBackColor = true;
+            this.shutdownButton.Click += new System.EventHandler(this.shutdownButton_Click);
             // 
             // performanceLabel
             // 
             this.performanceLabel.AutoSize = true;
             this.performanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.performanceLabel.Location = new System.Drawing.Point(3, 191);
+            this.performanceLabel.Location = new System.Drawing.Point(3, 219);
             this.performanceLabel.Name = "performanceLabel";
             this.performanceLabel.Size = new System.Drawing.Size(220, 12);
             this.performanceLabel.TabIndex = 12;
@@ -205,7 +191,7 @@
             // performance
             // 
             this.performance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.performance.Location = new System.Drawing.Point(3, 206);
+            this.performance.Location = new System.Drawing.Point(3, 234);
             this.performance.Name = "performance";
             this.performance.Size = new System.Drawing.Size(220, 19);
             this.performance.TabIndex = 4;
@@ -215,7 +201,6 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.date, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.timeTable, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.classTime, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.customTimeLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.todaysPlans, 0, 6);
@@ -227,6 +212,7 @@
             this.tableLayoutPanel1.Controls.Add(this.task, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.tomorrowsPlansLabel, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.customTime, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.timeTable1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -244,7 +230,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(226, 494);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(226, 372);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // date
@@ -259,7 +245,7 @@
             // 
             this.customTimeLabel.AutoSize = true;
             this.customTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customTimeLabel.Location = new System.Drawing.Point(3, 117);
+            this.customTimeLabel.Location = new System.Drawing.Point(3, 145);
             this.customTimeLabel.Name = "customTimeLabel";
             this.customTimeLabel.Size = new System.Drawing.Size(220, 12);
             this.customTimeLabel.TabIndex = 13;
@@ -268,7 +254,7 @@
             // task
             // 
             this.task.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.task.Location = new System.Drawing.Point(3, 243);
+            this.task.Location = new System.Drawing.Point(3, 271);
             this.task.Name = "task";
             this.task.Size = new System.Drawing.Size(220, 19);
             this.task.TabIndex = 5;
@@ -282,7 +268,7 @@
             0,
             0,
             0});
-            this.customTime.Location = new System.Drawing.Point(3, 132);
+            this.customTime.Location = new System.Drawing.Point(3, 160);
             this.customTime.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -300,7 +286,7 @@
             this.tableLayoutPanel3.Controls.Add(this.saveButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.shutdownButton, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 488);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 366);
             this.tableLayoutPanel3.MaximumSize = new System.Drawing.Size(0, 30);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
@@ -308,12 +294,21 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 30);
             this.tableLayoutPanel3.TabIndex = 16;
             // 
+            // timeTable1
+            // 
+            this.timeTable1.AutoSize = true;
+            this.timeTable1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeTable1.Location = new System.Drawing.Point(3, 28);
+            this.timeTable1.Name = "timeTable1";
+            this.timeTable1.Size = new System.Drawing.Size(220, 88);
+            this.timeTable1.TabIndex = 14;
+            // 
             // Diary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(226, 518);
+            this.ClientSize = new System.Drawing.Size(226, 396);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
@@ -333,7 +328,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.CheckedListBox timeTable;
         private System.Windows.Forms.ComboBox classTime;
         private System.Windows.Forms.Label todaysPlansLabel;
         private System.Windows.Forms.TextBox todaysPlans;
@@ -355,6 +349,7 @@
         private System.Windows.Forms.TextBox task;
         private System.Windows.Forms.NumericUpDown customTime;
         private System.Windows.Forms.ToolStripMenuItem newDiaryMenuItem;
+        private Diary.TimeTable timeTable1;
     }
 }
 

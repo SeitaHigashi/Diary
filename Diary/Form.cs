@@ -11,11 +11,11 @@ using System.Configuration;
 
 namespace Diary
 {
-    public partial class Diary : Form
+    public partial class Form : System.Windows.Forms.Form
     {
         private string destination = ConfigurationManager.AppSettings["destination"];
 
-        public Diary()
+        public Form()
         {
             InitializeComponent();
             InitializeClassTimeComboBox();
@@ -116,6 +116,10 @@ namespace Diary
                     OpenDiary();
                 }
             }
+        }
+
+        private void shutdownButton_Click(object sender, EventArgs e)
+        {
         }
     }
 }
