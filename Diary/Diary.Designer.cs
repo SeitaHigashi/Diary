@@ -76,10 +76,6 @@
             this.classTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.classTime.FormattingEnabled = true;
-            this.classTime.Items.AddRange(new object[] {
-            "通常授業",
-            "80分授業",
-            "その他"});
             this.classTime.Location = new System.Drawing.Point(3, 94);
             this.classTime.Name = "classTime";
             this.classTime.Size = new System.Drawing.Size(220, 20);
@@ -295,11 +291,6 @@
             this.customTime.Name = "customTime";
             this.customTime.Size = new System.Drawing.Size(220, 19);
             this.customTime.TabIndex = 3;
-            this.customTime.Value = new decimal(new int[] {
-            90,
-            0,
-            0,
-            0});
             // 
             // tableLayoutPanel3
             // 
@@ -329,7 +320,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(242, 39);
             this.Name = "Diary";
-            this.Text = "4";
+            this.Text = "Diary";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

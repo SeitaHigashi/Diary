@@ -18,7 +18,19 @@ namespace Diary
         public Diary()
         {
             InitializeComponent();
+            InitializeClassTimeComboBox();
             OpenDiary();
+        }
+
+        private void InitializeClassTimeComboBox()
+        {
+            List<ClassTime> src = new List<ClassTime>();
+            src.Add(new ClassTime("通常授業", 90));
+            src.Add(new ClassTime("80分授業", 80));
+            src.Add(new ClassTime("その他", 0));
+            classTime.DataSource = src;
+            classTime.DisplayMember = "display";
+            classTime.ValueMember = "value";
         }
 
         private void Initialize()
@@ -44,6 +56,17 @@ namespace Diary
             todaysPlans.Text = Excel.LoadPlans(destination);
         }
 
+        private void Save()
+        {
+            var log = new Log();
+            log.date = date.Value;
+            log.classTime = 0;
+            log.performance = performance.Text;
+            log.task = task.Text;
+            log.plan = tomorrowsPlan.Text;
+            Excel.Save(destination, log);
+        }
+
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -58,6 +81,7 @@ namespace Diary
                     break;
                 default:
                     customTime.Enabled = false;
+                    customTime.Value = 0;
                     break;
             }
         }
@@ -78,13 +102,7 @@ namespace Diary
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            var log = new Log();
-            log.date = date.Value;
-            log.classTime = 0;
-            log.performance = performance.Text;
-            log.task = task.Text;
-            log.plan = tomorrowsPlan.Text;
-            Excel.Save(destination, log);
+            Save();
         }
 
         private void openDiaryMenuItem_Click(object sender, EventArgs e)
