@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace Diary
 {
@@ -98,6 +92,7 @@ namespace Diary
         private void saveButton_Click(object sender, EventArgs e)
         {
             Save();
+            MessageBox.Show("保存が完了しました", "Diary");
         }
 
         private void openDiaryMenuItem_Click(object sender, EventArgs e)
@@ -105,7 +100,7 @@ namespace Diary
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files(*.*)|*.*";
-                if(openFileDialog.ShowDialog() == DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     SetDestination(openFileDialog.FileName);
                     OpenDiary();

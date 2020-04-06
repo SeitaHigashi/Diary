@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
+﻿using ClosedXML.Excel;
+using System;
 
 namespace Diary
 {
@@ -12,7 +8,7 @@ namespace Diary
 
         public static void New(string docName)
         {
-            using(XLWorkbook workbook = new XLWorkbook())
+            using (XLWorkbook workbook = new XLWorkbook())
             {
                 var worksheet = workbook.Worksheets.Add("Diary");
                 worksheet.Cell("A1").Value = "日付";
@@ -41,7 +37,7 @@ namespace Diary
 
         }
 
-            public static void Save(string docName, Log log)
+        public static void Save(string docName, Log log)
         {
             using (XLWorkbook workbook = new XLWorkbook(docName))
             {
