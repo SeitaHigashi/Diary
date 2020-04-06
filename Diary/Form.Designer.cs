@@ -48,8 +48,8 @@
             this.customTimeLabel = new System.Windows.Forms.Label();
             this.task = new System.Windows.Forms.TextBox();
             this.customTime = new System.Windows.Forms.NumericUpDown();
+            this.timeTable = new Diary.TimeTable();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.timeTable1 = new Diary.TimeTable();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customTime)).BeginInit();
@@ -212,7 +212,7 @@
             this.tableLayoutPanel1.Controls.Add(this.task, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.tomorrowsPlansLabel, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.customTime, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.timeTable1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.timeTable, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -278,6 +278,15 @@
             this.customTime.Size = new System.Drawing.Size(220, 19);
             this.customTime.TabIndex = 3;
             // 
+            // timeTable
+            // 
+            this.timeTable.AutoSize = true;
+            this.timeTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeTable.Location = new System.Drawing.Point(3, 28);
+            this.timeTable.Name = "timeTable";
+            this.timeTable.Size = new System.Drawing.Size(220, 88);
+            this.timeTable.TabIndex = 14;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -294,16 +303,7 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 30);
             this.tableLayoutPanel3.TabIndex = 16;
             // 
-            // timeTable1
-            // 
-            this.timeTable1.AutoSize = true;
-            this.timeTable1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeTable1.Location = new System.Drawing.Point(3, 28);
-            this.timeTable1.Name = "timeTable1";
-            this.timeTable1.Size = new System.Drawing.Size(220, 88);
-            this.timeTable1.TabIndex = 14;
-            // 
-            // Diary
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -314,7 +314,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(242, 39);
-            this.Name = "Diary";
+            this.Name = "Form";
             this.Text = "Diary";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -349,7 +349,7 @@
         private System.Windows.Forms.TextBox task;
         private System.Windows.Forms.NumericUpDown customTime;
         private System.Windows.Forms.ToolStripMenuItem newDiaryMenuItem;
-        private Diary.TimeTable timeTable1;
+        private Diary.TimeTable timeTable;
     }
 }
 

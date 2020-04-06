@@ -25,9 +25,11 @@ namespace Diary
         private void InitializeClassTimeComboBox()
         {
             List<ClassTime> src = new List<ClassTime>();
-            src.Add(new ClassTime("通常授業", 90));
-            src.Add(new ClassTime("80分授業", 80));
-            src.Add(new ClassTime("その他", 0));
+            src.Add(new ClassTime("通常授業", 90, false));
+            src.Add(new ClassTime("80分授業", 80, false));
+            src.Add(new ClassTime("通常授業+カスタム時間", 90, true));
+            src.Add(new ClassTime("80分授業+カスタム時間", 80, true));
+            src.Add(new ClassTime("その他", 0, true));
             classTime.DataSource = src;
             classTime.DisplayMember = "display";
             classTime.ValueMember = "value";
@@ -58,9 +60,11 @@ namespace Diary
 
         private void Save()
         {
+            int time = ((ClassTime)classTime.SelectedItem).value;
+            int customtime = (((ClassTime)classTime.SelectedItem).custom) ? (int)customTime.Value : 0;
             var log = new Log();
             log.date = date.Value;
-            log.classTime = 0;
+            log.classTime = time + customtime;
             log.performance = performance.Text;
             log.task = task.Text;
             log.plan = tomorrowsPlan.Text;
@@ -74,16 +78,7 @@ namespace Diary
 
         private void classTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (classTime.Text)
-            {
-                case "その他":
-                    customTime.Enabled = true;
-                    break;
-                default:
-                    customTime.Enabled = false;
-                    customTime.Value = 0;
-                    break;
-            }
+            customTime.Enabled = ((ClassTime)classTime.SelectedItem).custom;
         }
 
         private void newDiaryMenuItem_Click(object sender, EventArgs e)
@@ -120,6 +115,7 @@ namespace Diary
 
         private void shutdownButton_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(timeTable.Count);
         }
     }
 }

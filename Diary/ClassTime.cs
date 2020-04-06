@@ -12,10 +12,13 @@ namespace Diary
 
         public int value { get; set; }
 
-        public ClassTime(string display, int value)
+        public bool custom { get; set; }
+
+        public ClassTime(string display, int value, bool custom)
         {
             this.display = display;
             this.value = value;
+            this.custom = custom;
         }
     }
 }
